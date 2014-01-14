@@ -217,10 +217,12 @@ void battery_state_handler(BatteryChargeState charge) {
 	battery_level = charge.charge_percent;
 	battery_plugged = charge.is_plugged;
 	layer_mark_dirty(battery_layer);
+	/*
 	if (!battery_plugged && battery_level < 20)
 		conserve_power(true);
 	else
 		conserve_power(false);
+	*/
 }
 
 /*
@@ -397,6 +399,9 @@ int main(void) {
 	tick_timer_service_subscribe(SECOND_UNIT, &handle_tick);
 	bluetooth_connection_service_subscribe(&bt_connection_handler);
 	battery_state_service_subscribe	(&battery_state_handler);
+
+	conserve_power(true);
+
 	app_event_loop();
 	deinit();
 }

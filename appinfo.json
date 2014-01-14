@@ -1,15 +1,15 @@
 {
     "versionLabel": "1.0.0",
-    "uuid": "698B3E04-B12E-4FF5-BFAD-1BE6BDEEB5D8",
+    "uuid": "b03f16a0-7cbb-11e3-baa7-0800200c9a66",
     "appKeys": {
         "dummy": 0
     },
-    "longName": "Modern Extra",
+    "longName": "Modern Longlife",
     "versionCode": 1,
     "capabilities": [
         ""
     ],
-    "shortName": "Modern Extra",
+    "shortName": "Modern Longlife",
     "companyName": "Zalew/Fowler",
     "watchapp": {
         "watchface": true

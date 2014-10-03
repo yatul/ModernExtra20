@@ -1,15 +1,15 @@
 {
-    "versionLabel": "1.0.0",
-    "uuid": "b03f16a0-7cbb-11e3-baa7-0800200c9a66",
+    "versionLabel": "1.0.1",
+    "uuid": "e64732de-f7fb-41c0-bfa1-4f02f0f671fd",
     "appKeys": {
         "dummy": 0
     },
-    "longName": "Modern Longlife",
+    "longName": "Modern LostConnection",
     "versionCode": 1,
     "capabilities": [
         ""
     ],
-    "shortName": "Modern Longlife",
+    "shortName": "Modern LostConnection",
     "companyName": "Zalew/Fowler",
     "watchapp": {
         "watchface": true

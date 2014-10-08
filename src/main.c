@@ -229,15 +229,20 @@ void battery_state_handler(BatteryChargeState charge) {
  * Bluetooth icon callback handler
  */
 void bt_layer_update_callback(Layer *layer, GContext *ctx) {
-  if (bt_ok)
+  if (bt_ok) {
   	graphics_context_set_compositing_mode(ctx, GCompOpAssign);
-  else
+  }  else {
   	graphics_context_set_compositing_mode(ctx, GCompOpClear);
+  }
   graphics_draw_bitmap_in_rect(ctx, icon_bt, GRect(0, 0, 9, 12));
 }
 
 void bt_connection_handler(bool connected) {
 	bt_ok = connected;
+	if (!bt_ok) {
+		vibes_double_pulse();
+		vibes_long_pulse();
+	}
 	layer_mark_dirty(bt_layer);
 }
 
@@ -326,7 +331,7 @@ void init() {
 
 void deinit() {
 
-	window_destroy(window);
+	//window_destroy(window);
 	gbitmap_destroy(background_image_container);
 	gbitmap_destroy(icon_battery);
 	gbitmap_destroy(icon_battery_charge);

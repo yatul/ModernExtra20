@@ -30,6 +30,12 @@ static InverterLayer *full_inverse_layer;
 static Layer *background_layer;
 static Layer *window_layer;
 
+static const uint32_t const segments[] = { 400, 200, 400, 200, 800 };
+const VibePattern pat = {
+  .durations = segments,
+  .num_segments = ARRAY_LENGTH(segments),
+};
+
 const GPathInfo MINUTE_HAND_PATH_POINTS = { 4, (GPoint[] ) { { -4, 15 },
 				{ 4, 15 }, { 4, -70 }, { -4, -70 }, } };
 
@@ -240,8 +246,8 @@ void bt_layer_update_callback(Layer *layer, GContext *ctx) {
 void bt_connection_handler(bool connected) {
 	bt_ok = connected;
 	if (!bt_ok) {
-		vibes_double_pulse();
-		vibes_long_pulse();
+		
+		vibes_enqueue_custom_pattern(pat);
 	}
 	layer_mark_dirty(bt_layer);
 }
